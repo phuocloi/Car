@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CarRentalWebService.Models.Review>
+@{
+    ViewBag.Title = "Home Page";
+    //List<String> list = ViewBag.Brand;
+}
+
+<div class="jumbotron">
+    @*<h1>Dash Board</h1>*@
+    <p class="lead" style="margin:auto;">Thống kê các đánh giá mới nhất về chất lượng dịch vụ của công ty</p>
+    @*Get top 10 comment*@
+    <div>
+        <table>
+            <tr>
+                <th style="width: 30%;">
+                    jgjgj
+                </th>
+                <th style="width:10%;"></th>
+                <th style ="width: 60%;">
+                    hkhkkh
+                </th>
+            </tr>
+            <tr>
+                <th style="width: 30%;">
+                    @{Html.RenderAction("_GetTop", "DashBoard");}
+                </th>
+                <th style="width:10%;"></th>
+                <th style="width: 60%;">
+                    @{Html.RenderAction("GetTopCar", "DashBoard");}
+                </th>
+            </tr>
+        </table>
+        @*@{Html.RenderAction("_GetTop", "DashBoard");}
+        @{Html.RenderAction("GetTopCar", "DashBoard");}*@
+    </div>
+
+    @*@ViewBag.Dem*@
+    
+    @*Chart*@
+    <div id="chart_div" style="width: 100%; height: 500px;">
+        <script type="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Các loại xe', 'Lượt thuê', 'Lượt đánh giá'],
+          ["CR-V", 100, 30],
+          ['2005', 1170, 460],
+          ['2006', 660, 1120],
+          ['2007', 1030, 540],
+          ['2004', 1000, 400],
+          ['2005', 1170, 460],
+          ['2006', 660, 1120],
+          ['2007', 1030, 540]
+        ]);
+
+        var options = {
+            title: 'Thống kê số lượng thuê xe và đánh giá dịch vụ thuê xe',
+            hAxis: { title: 'Tên các loại xe cho thuê', titleTextStyle: { color: 'red' } }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+    }
+        </script>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p></p>
+    </div>
+</div>

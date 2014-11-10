@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CarRentalWebService.Models.Review> 
+
+@{
+    ViewBag.Title = "_GetTop";
+    Layout = null;
+}
+
+@*<h2>_GetTop</h2>*@
+<div style="width: 100%;">
+    @*<p style="color:red;">Thong ke cac danh gia ve dich vu moi nhat</p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stars)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>*@
+            @*<th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stars)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+</div>
