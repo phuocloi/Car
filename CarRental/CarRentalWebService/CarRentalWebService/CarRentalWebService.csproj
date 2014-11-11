@@ -240,6 +240,7 @@
     <Content Include="Views\Reviews\GetTop.cshtml" />
     <Content Include="Views\DashBoard\_GetTop.cshtml" />
     <Content Include="Views\DashBoard\GetTopCar.cshtml" />
+    <Content Include="Views\DashBoard\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

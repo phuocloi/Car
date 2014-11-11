@@ -34,18 +34,27 @@
     </div>
 
     @*@ViewBag.Dem*@
-    
+    @foreach (var a in Model)
+    {
+       
+    }
     @*Chart*@
     <div id="chart_div" style="width: 100%; height: 500px;">
         <script type="text/javascript">
     google.load("visualization", "1", { packages: ["corechart"] });
     google.setOnLoadCallback(drawChart);
+
+
     function drawChart() {
+    
 
         var data = google.visualization.arrayToDataTable([
+       
+
           ['Các loại xe', 'Lượt thuê', 'Lượt đánh giá'],
+
           ["CR-V", 100, 30],
-          ['2005', 1170, 460],
+          ['', 1170, 460],
           ['2006', 660, 1120],
           ['2007', 1030, 540],
           ['2004', 1000, 400],
@@ -62,9 +71,10 @@
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 
         chart.draw(data, options);
-
+         
     }
-        </script>
+    
+</script>
     </div>
 </div>
 

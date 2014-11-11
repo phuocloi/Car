@@ -41,13 +41,24 @@ namespace CarRentalWebService.Controllers
             //    //    dem++;
             //    //    ten.Add(b.Model.Name);
             //    //}
-               
-                
+           
+            return View();
+        }
+        public ActionResult Test()
+        {
+            var a = from m in db.CarModels
+                    select new
+                    {
+                        ma = from r in db.Requests group r by r.Model_Id into gr where m.Id == gr.Key select gr.Key,
+                        ten = m.Name,
+                        solanthue = (from r in db.Requests group r by r.Model_Id into gr where m.Id == gr.Key select gr.Key).Count()
+                    };
 
             //}
             //ViewBag.Dem = dem.ToString();
             //ViewBag.Brand = ten;
-            return View();
+            ViewBag.a = a;
+            return View(a);
         }
 
         // GET: DashBoard/Details/5
